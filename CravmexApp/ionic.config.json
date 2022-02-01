@@ -1,0 +1,7 @@
+{
+  "name": "CravmexApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
