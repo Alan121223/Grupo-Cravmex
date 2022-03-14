@@ -1,0 +1,7 @@
+{
+  "name": "cravmex",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
