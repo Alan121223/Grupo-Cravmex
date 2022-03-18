@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  confirebaseConfig : {
+  firebaseConfig : {
     apiKey: "AIzaSyBsTewfFqgK7_sm9-nuNdLkqaCMTeT8OUo",
     authDomain: "cravmex.firebaseapp.com",
     projectId: "cravmex",
