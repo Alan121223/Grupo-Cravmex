@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { UserI } from '../../models/models';
+import { AuthService } from '../../services/auth.service';
+import { FirestoreService } from '../../services/firestore.service';
+import { InteractionService } from '../../services/interaction.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -6,9 +11,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro.component.scss'],
 })
 export class RegistroComponent implements OnInit {
+  datos: UserI = {
+    nombre: null,
+    apellido:null,
+    correo: null,
+    password: null,
+    uid: null,
+    telefono:null,
+ 
 
-  constructor() { }
+    perfil: 'visitante'
+  }
+
+  constructor(private auth: AuthService,
+    private firestore: FirestoreService,
+    private interaction: InteractionService,
+    private router: Router) { }
 
   ngOnInit() {}
 
+  async registrar() {
+    this.interaction.presentLoading('registrando...')
+    console.log('datos -> ', this.datos);
+    const res = await this.auth.registarUser(this.datos).catch( error => {
+      this.interaction.closeLoading();
+      this.interaction.presentToast('Faltan llenar datos o no existe el correo')
+      console.log('error');
+    })
+    if (res) {
+        console.log('exito al crear el usuario');
+        const path = 'Usuarios';
+        const id = res.user.uid;
+        this.datos.uid = id;
+        this.datos.password = null
+        await this.firestore.createDoc(this.datos, path, id)
+        this.interaction.closeLoading();
+        this.interaction.presentToast('registrado con exito');
+        //this.router.navigate(['/home'])
+    }
+
+  }
 }

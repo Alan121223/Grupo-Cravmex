@@ -5,14 +5,14 @@
   </ion-list-header>
 
 
-  <ion-item  [routerLink]="['/proyecto']" >
+  <ion-item  [routerLink]="['/proyecto']"  *ngIf="rol === 'admin' " >
         <ion-label>
           Proyectos
         </ion-label>
         <ion-icon slot="start" name="clipboard-outline"></ion-icon>
   </ion-item>
 
-  <ion-item  [routerLink]="['/avances']" >
+  <ion-item  [routerLink]="['/avances']"  *ngIf="rol === 'visitante' " >
     <ion-label>
       Avances
     </ion-label>
@@ -61,7 +61,7 @@
 
 <ion-menu-toggle >
 
-  <ion-item detail="true" >
+  <ion-item detail="true" (click)="logout()">
     <ion-label>
      Logout
     </ion-label>

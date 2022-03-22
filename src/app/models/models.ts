@@ -1,14 +1,14 @@
-export interface UserI{
+export interface UserI {
+    nombre: string;
+    apellido: string;
+    correo: string;
+    password: string;
+    uid: string;
+    telefono:string;
+ 
 
-    nombre : string ;
-    apellido : string ; 
-    correo: string; 
-    password: string; 
-    uid: string; 
-    telefono : string ; 
-
-    perfil : 'visitante'| 'visitante2'|'admin',
-}
+    perfil: 'visitante'| 'admin',
+  }
 
 export interface Proyecto{
 
