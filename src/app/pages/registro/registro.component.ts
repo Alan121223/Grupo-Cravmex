@@ -4,6 +4,8 @@ import { AuthService } from '../../services/auth.service';
 import { FirestoreService } from '../../services/firestore.service';
 import { InteractionService } from '../../services/interaction.service';
 import { Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-registro',
@@ -11,6 +13,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro.component.scss'],
 })
 export class RegistroComponent implements OnInit {
+  ///
+  data :any[]=[];
+
   datos: UserI = {
     nombre: null,
     apellido:null,
@@ -19,16 +24,34 @@ export class RegistroComponent implements OnInit {
     uid: null,
     telefono:null,
  
-
-    perfil: 'visitante'
+//
+    perfil: null,
   }
 
   constructor(private auth: AuthService,
     private firestore: FirestoreService,
     private interaction: InteractionService,
-    private router: Router) { }
+    private router: Router,
+    ///
+    private platform:Platform) { 
+
+this.platform.ready().then(()=>{
+  this.data=[{perfil:"Administrador"},{perfil:"Operador"}];
+})
+
+    }
+
+     OnChange(event){
+      alert("Seguro que quieres ser "+event.target.value+"?");
+     }
 
   ngOnInit() {}
+
+  logout() {
+    this.auth.logut();
+    this.interaction.presentToast('sesion finalizada');
+    this.router.navigate(['/login'])
+}
 
   async registrar() {
     this.interaction.presentLoading('registrando...')
@@ -47,7 +70,11 @@ export class RegistroComponent implements OnInit {
         await this.firestore.createDoc(this.datos, path, id)
         this.interaction.closeLoading();
         this.interaction.presentToast('registrado con exito');
-        //this.router.navigate(['/home'])
+        //registro
+        this.auth.logut();
+        this.interaction.presentToast('sesion finalizada');
+    this.router.navigate(['/login'])
+       
     }
 
   }

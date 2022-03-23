@@ -63,6 +63,22 @@
 </ion-item>
 
 
+<ion-item lines="none">
+<ion-select [(ngModel)]="datos.perfil" (ionChange)="OnChange($event)" interface="action-sheet">
+
+
+  <ion-select-option value="Administrador">Administrador </ion-select-option>
+  <ion-select-option value="Operador">Operador</ion-select-option>
+  <ion-select-option value="root">Super Usuario</ion-select-option>
+</ion-select>
+</ion-item>
+
+
+
+
+
+
+
 
 
 

@@ -10,6 +10,8 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { VeravancesComponent } from './pages/veravances/veravances.component';
 import { VergastosComponent } from './pages/vergastos/vergastos.component';
 import { VerproyectoComponent } from './pages/verproyecto/verproyecto.component';
+import { UseradminComponent } from './pages/useradmin/useradmin.component';
+import { UseroperativeComponent } from './pages/useroperative/useroperative.component';
 
 const routes: Routes = [
   {path : 'home', component: HomeComponent},
@@ -22,7 +24,9 @@ const routes: Routes = [
   {path: 'registro', component: RegistroComponent},
   {path: 'veravances', component: VeravancesComponent},
   {path: 'vergastos', component: VergastosComponent},
-  {path: 'verproyecto', component:VerproyectoComponent }
+  {path: 'verproyecto', component:VerproyectoComponent },
+  {path: 'useradmin', component:UseradminComponent},
+  {path: 'useroperative', component:UseroperativeComponent}
 ];
 
 @NgModule({

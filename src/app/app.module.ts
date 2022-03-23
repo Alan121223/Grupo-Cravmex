@@ -26,6 +26,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { VeravancesComponent } from './pages/veravances/veravances.component';
 import { VergastosComponent } from './pages/vergastos/vergastos.component';
 import { VerproyectoComponent } from './pages/verproyecto/verproyecto.component';
+import { UseroperativeComponent } from './pages/useroperative/useroperative.component';
+import { UseradminComponent } from './pages/useradmin/useradmin.component';
 
 
 
@@ -42,7 +44,8 @@ RegistroComponent,
 VeravancesComponent,
 VergastosComponent,
 VerproyectoComponent,
-MenuComponent,
+MenuComponent,UseroperativeComponent,
+UseradminComponent
 ],
   entryComponents: [],
   imports: [BrowserModule, 

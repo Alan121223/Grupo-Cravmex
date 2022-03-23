@@ -5,9 +5,12 @@ export interface UserI {
     password: string;
     uid: string;
     telefono:string;
+
+    
+    perfil:string;
  
 
-    perfil: 'visitante'| 'admin',
+    // perfil: 'visitante'| 'admin',
   }
 
 export interface Proyecto{

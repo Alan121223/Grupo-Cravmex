@@ -5,36 +5,57 @@
   </ion-list-header>
 
 
-  <ion-item  [routerLink]="['/proyecto']"  *ngIf="rol === 'admin' " >
+  <ion-item  [routerLink]="['/proyecto']"  *ngIf="rol === 'Administrador' " >
         <ion-label>
           Proyectos
         </ion-label>
         <ion-icon slot="start" name="clipboard-outline"></ion-icon>
   </ion-item>
 
-  <ion-item  [routerLink]="['/avances']"  *ngIf="rol === 'visitante' " >
+  <ion-item  [routerLink]="['/verproyecto']" *ngIf="login && rol=='Operador'" >
+    <ion-label>
+      Ver proyectos
+    </ion-label>
+    <ion-icon slot="start" name="clipboard-outline"></ion-icon>
+</ion-item>
+
+  <ion-item  [routerLink]="['/avances']"  *ngIf="login && rol=='Operador'">
     <ion-label>
       Avances
     </ion-label>
     <ion-icon slot="start" name="settings"></ion-icon>
 </ion-item>
-<ion-item  [routerLink]="['/registro']" >
+
+
+<ion-item  [routerLink]="['/veravances']"  *ngIf="rol === 'Administrador' " >
   <ion-label>
-    Registrar usuarios   </ion-label>
-  <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+    Ver avances
+  </ion-label>
+  <ion-icon slot="start" name="settings"></ion-icon>
+</ion-item>
+
+<ion-item  [routerLink]="['/registro']" *ngIf="rol === 'root' " >
+  <ion-label>
+   Nuevo usuario  </ion-label>
+  <ion-icon slot="start" name="person-add-outline" ></ion-icon>
+</ion-item>
+
+<ion-item  [routerLink]="['/useradmin']" *ngIf="rol === 'root' " >
+  <ion-label>
+    Registrados </ion-label>
+  <ion-icon slot="start" name="person-circle-outline" ></ion-icon>
 </ion-item>
 
 
-
   
-  <ion-item detail="true" [routerLink]="['/gastos']" >
+  <ion-item detail="true" [routerLink]="['/gastos']" *ngIf="login && rol=='Operador'">
     <ion-label>
       Gastos
     </ion-label>
     <ion-icon slot="start" name="cash-outline"></ion-icon>
   </ion-item>
 
-  <ion-item detail="true" [routerLink]="['/vergastos']" >
+  <ion-item detail="true" [routerLink]="['/vergastos']" *ngIf="rol === 'Administrador' " >
     <ion-label>
       Ver Gastos
     </ion-label>
@@ -42,7 +63,7 @@
   </ion-item>
   
   <ion-menu-toggle >
-    <ion-item  detail="true" [routerLink]="['/login']" routerLinkActive="router-link-active" >
+    <ion-item  *ngIf ="login == false"  detail="true" [routerLink]="['/login']" routerLinkActive="router-link-active" >
       <ion-label>
        Login
       </ion-label>
@@ -51,7 +72,7 @@
 
   </ion-menu-toggle>
 
-  <ion-item >
+  <ion-item  *ngIf="login && rol=='Operador'">
     <ion-label>
     Perfil
     </ion-label>
@@ -61,9 +82,9 @@
 
 <ion-menu-toggle >
 
-  <ion-item detail="true" (click)="logout()">
+  <ion-item *ngIf ="login" detail="true" (click)="logout()">
     <ion-label>
-     Logout
+  Salir
     </ion-label>
     <ion-icon slot="start" name="log-out-sharp"></ion-icon>
   </ion-item>

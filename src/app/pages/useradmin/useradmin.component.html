@@ -1,0 +1,76 @@
+<ion-toolbar>
+
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+
+
+
+  <div class="titleicon">
+    <ion-img src="../../../assets/img/LogoPrin.jpg"></ion-img>
+    <!-- <img
+      src="https://scontent.fmex37-1.fna.fbcdn.net/v/t39.30808-6/275833783_2058760204284126_9079254644944042166_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeFopssDjkNrRw0R9z7DD-4Geq3eMrcoIDZ6rd4ytyggNnTAvJYgO8GRmKmVHEK23URC0VjG7YfKeRgHpf9QMDBy&_nc_ohc=UaQVcS7EuAsAX9opkBK&_nc_ht=scontent.fmex37-1.fna&oh=00_AT_iquqjqaHgvqlU3SqePDq9pylHQ56pYjJxnG6_RKLxuA&oe=6232EFFB"
+      width="100PX" /> -->
+  </div>
+
+
+
+</ion-toolbar>
+<ion-content>
+  <!-- <ion-item>
+  <label class="Typetext"><h4>Tipo de usuario:</h4></label>
+  <label slot="end"></label>
+</ion-item> -->
+  <ion-row class="ion-justify-content-end">
+    <ion-col size="3">
+      <ion-button shape="round" (click)="redirect()" color="">
+        <ion-icon name="add-outline" ></ion-icon>
+      </ion-button>
+
+    </ion-col>
+  </ion-row>
+  <ion-item>
+    <!-- <ion-col>
+      <ion-label >Tipo de Usuario: </ion-label>
+    </ion-col> -->
+    <ion-col>
+      <ion-label >Nombre</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label>Correo </ion-label>
+    </ion-col>
+  </ion-item>
+  <ion-item *ngFor="let registrados of registrados ">
+
+    <!-- <label>Usuarios Administradores</label> -->
+    <!-- <ion-col>
+      <ion-label >
+        {{ registrados.perfil}}
+
+      </ion-label>
+    </ion-col> -->
+    <ion-col>
+      <ion-label >
+
+        {{registrados.nombre}} {{registrados.apellido}}
+
+      </ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label >
+        {{ registrados.correo}}
+
+      </ion-label>
+    </ion-col>
+    <ion-buttons>
+      <ion-button (click)="deleteUser(registrados)" slot="end">
+        <ion-icon slot="icon-only" color="success" name="trash"></ion-icon>
+      </ion-button>
+      <!-- <ion-button slot="end" (click)="redirect()" (click)="registradoss=registrados">
+        <ion-icon slot="icon-only" color="succes" name="create"></ion-icon>
+      </ion-button> -->
+
+    </ion-buttons>
+  
+  </ion-item>
+</ion-content>
