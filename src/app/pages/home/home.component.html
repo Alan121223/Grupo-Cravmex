@@ -1,11 +1,11 @@
-<ion-header>
+<ion-header  >
 
   <ion-toolbar>
 
 
     <div class="titleicon">
-      <img src="https://scontent.fmex10-3.fna.fbcdn.net/v/t39.30808-6/276032553_2062537530573060_3092978523121664843_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeG_KVketN6vvs_JaLYT43SqBTOCfWjbyf0FM4J9aNvJ_a470Hc7VXK7NnihKpOg4_eOzODGXvqpqVqMOkDcJooy&_nc_ohc=7lubQfJ7r6QAX-xgxwa&_nc_zt=23&_nc_ht=scontent.fmex10-3.fna&oh=00_AT8_5sqcmJVoLrLHYwchA-pMDrbwfUa1wnBtpkTkTyoQgw&oe=623953CB" width="100PX" />
- </div>
+      <img src="../../../assets/img/ssqq.jpg" width="100px" routerLink="/home" class="cursor"/>
+    </div>
     
 
     <ion-buttons slot="start">
@@ -44,31 +44,61 @@
 </ion-header>
 
 
-<ion-content>
 
-  
-
-
-  <ion-content>
+  <ion-content *ngIf="status=='Activo'">
 
 
 <ion-row>
-  <ion-col sizeLg="8" sizeMd="8" sizeXl="3">
+  <ion-col sizeLg="8" sizeMd="8" sizeXl="3" *ngIf=" rol =='Administrador'" >
     <ion-card>
-<img src="https://scontent.fmex10-3.fna.fbcdn.net/v/t39.30808-6/276130040_2062433617250118_6760339192610714179_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeGN8z-3tZuzfN-ZpUcOlgNgL9s0pDDncWEv2zSkMOdxYdOb-7QUGEA1lUuXsGLf-wqh9av7RnN2aoznijEYdPVc&_nc_ohc=lpCizZZjnHEAX-3bliq&tn=y8jaKjLmqRqKmQu2&_nc_zt=23&_nc_ht=scontent.fmex10-3.fna&oh=00_AT-U3skCA-OI7uhmfjM7M0pbFtPK2wyjzFRsYgB2prUVeA&oe=62379840" alt=""> 
-</ion-card>
+      <ion-card-content>
+         <img src="../../../assets/img/clipart2398855.jpg" [routerLink]="['/verproyecto']" />
+
+      </ion-card-content>
+      <ion-card-header>
+      
+        <ion-title class="iontitle">Avances</ion-title>
+
+      </ion-card-header>
+     
+    </ion-card>
    
 
   </ion-col>
-  <ion-col sizeLg="6" sizeMd="6" sizeXl="3">
+  <ion-col sizeLg="8" sizeMd="8" sizeXl="3" *ngIf="login && rol=='Administrador' ||login && rol=='Operador'" >
     <ion-card>
-<img src="https://scontent.fmex10-3.fna.fbcdn.net/v/t39.30808-6/276035850_2062434907249989_5255160713922167084_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeHa8TmS_hkWkq0M741JfIyxHv6Ja2ckgQEe_olrZySBATkgIciuW98JjdpJkv_9826J6VqhXQCCdeLZH9THXxZy&_nc_ohc=eixBvN3UmwEAX9ARuM4&_nc_zt=23&_nc_ht=scontent.fmex10-3.fna&oh=00_AT-UzU-pBkewDwAZtpmULFSvG1ypvw2NFF0bWNrE-SWY6g&oe=62385545" alt="ion">
+      <ion-card-content>
+      <img src="../../../assets/img/hojapro.jpg" [routerLink]="['/verproyecto']" />
+    </ion-card-content>
+    <ion-card-header>
+  
+      <ion-title class="iontitle">Proyectos</ion-title>
+
+    </ion-card-header>
     </ion-card>
   </ion-col>
-  <ion-col sizeLg="8" sizeMd="8" sizeXl="3">
+  <ion-col sizeLg="8" sizeMd="8" sizeXl="3" *ngIf="login && rol =='Administrador'">
     <ion-card>
-<img src="https://scontent.fmex10-3.fna.fbcdn.net/v/t39.30808-6/276045714_2062431723916974_536460743090492889_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeF0LJoixtXMfwTD0u47kan_k6Yq-XlohcGTpir5eWiFwa3Huqnqx-tHuyoyhFRp2LKhnd-CtqJ_qo2qd4YW3rLV&_nc_ohc=BnMJ89XrqywAX-Iuyb-&_nc_zt=23&_nc_ht=scontent.fmex10-3.fna&oh=00_AT-Ucf9ZU612pKuV6BGYeJD0lwnaRbRfqoEbTv7MNaxvzQ&oe=62389250" alt="ion">
+      <ion-card-content><img src="../../../assets/img/money.jpg" /></ion-card-content>
+      <ion-card-header>
+       
+        <ion-title class="iontitle">Gastos</ion-title>
+
+      </ion-card-header>
+
     </ion-card>
+  </ion-col>
+  <ion-col sizeLg="8" sizeMd="8" sizeXl="3" *ngIf="login && rol =='Administrador'">
+    <ion-card>
+      <ion-card-content><img src="../../../assets/img/aditivoss.png" /></ion-card-content>
+      <ion-card-header>
+       
+        <ion-title class="iontitle">Adictivos</ion-title>
+
+      </ion-card-header>
+    </ion-card>
+
+
   </ion-col>
 </ion-row>
 
@@ -144,7 +174,42 @@
   </ion-content>
 
   
+
+  <!--Contenedor excepcion-->
   
 
 
-</ion-content>
+
+  <!--Contenedor de alerta-->
+  <ion-content class="content" *ngIf="status=='Finalizado'">
+
+      <ion-row>
+        <ion-col >
+    
+    
+          <ion-card>
+           
+       <img src="../../../assets/img/iconx.png" width="300px" />
+     
+            <br>
+            <br>
+            <ion-label>
+              <h1>Error </h1>
+            </ion-label>
+            <p>_______________</p>
+            <ion-label><h1>Parece que no cuentas con los permisos</h1></ion-label><br><br>
+            <ion-label><h1>Inicia Sesión con el usuario correcto</h1> </ion-label>
+            
+            <div>
+              <p>_______________</p>
+              <br>
+    
+              <ion-button [routerLink]="['/login']"> Regresar</ion-button><br>
+              <br>
+            </div>
+    
+            <!-- <ion-icon class="icon-dinero" name="cash-outline"></ion-icon> -->
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-content>

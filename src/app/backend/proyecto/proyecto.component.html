@@ -1,0 +1,285 @@
+<ion-header>
+
+    <ion-toolbar>
+
+
+        <div class="titleicon">
+          <img src="../../../assets/img/ssqq.jpg" width="100px" />
+       </div>
+
+        <ion-buttons slot="start">
+<ion-menu-button></ion-menu-button>
+        </ion-buttons>
+
+        <ion-title></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content *ngIf="login  && rol=='Administrador'">
+
+
+    <ion-grid >
+
+        <ion-row class="ion-justify-content-end">
+          <ion-col size="4">
+            <ion-button shape="round" (click)= "addNew()">
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+    
+          </ion-col>
+        </ion-row>
+
+        
+          <!-- <ion-col>
+            <ion-label >Tipo de Usuario: </ion-label>
+          </ion-col> -->
+          <ion-grid>
+            <ion-row>
+          <ion-col col-1>
+            <ion-label>Nombre de proyecto</ion-label>
+          </ion-col >
+          <ion-col col-1>
+            <ion-label>Fecha Inicio</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Fecha Final</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Entregado</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>No.Maquinas </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Monto</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Ubicacion</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Status</ion-label>
+          </ion-col>
+        </ion-row>
+        </ion-grid>
+
+      
+    
+        <ion-row  *ngFor="let proyectos of proyecto">
+          
+            <ion-col>
+             <br><br>
+
+            <ion-label> 
+    {{proyectos.nombreP}}
+            </ion-label>
+          </ion-col>
+          <ion-col>
+
+            <br><br>
+
+            <ion-label>
+    {{proyectos.fechaI| date}}
+            </ion-label>
+          </ion-col>
+          <ion-col>
+         <br><br>
+
+            <ion-label>
+    {{proyectos.fechaF | date}}
+            </ion-label>
+          </ion-col>
+          <ion-col>
+            <br><br>
+
+            <ion-label>
+    {{proyectos.encargadoP}}
+            </ion-label>
+          </ion-col>
+          <ion-col>
+          <br><br>
+
+            <ion-label>
+    {{proyectos.maquinasT}}
+            </ion-label>
+          </ion-col>
+          <ion-col>
+            <br><br>
+
+            <ion-label>
+    {{proyectos.monto}}
+            </ion-label>
+          </ion-col>
+          <ion-col>
+            <br><br>
+
+            <ion-label>
+    {{proyectos.direccion}}
+            </ion-label>
+          </ion-col>
+          <ion-col>
+            <br><br>
+
+            <ion-label>
+    {{proyectos.status}}
+            </ion-label>
+          </ion-col>
+          
+    
+          <ion-col>
+            <ion-buttons>
+              <ion-button (click)="editar(proyectos)">
+                <ion-icon name="create"></ion-icon>
+              </ion-button>
+    
+              <ion-button  (click)="eliminar(proyectos)">
+                <ion-icon color="danger" name="trash"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+       
+        </ion-row>
+    
+        <ion-row>
+          <ion-col *ngIf="newIproyects">
+            <ion-item>
+              <ion-label position="floating">
+                Nombre proyecto
+              </ion-label>
+              <ion-input [(ngModel)]="newIproyects.nombreP" placeholder="Nombre de la compania" required></ion-input>
+            </ion-item>
+
+            
+    
+            <ion-list>
+<!-- 
+                <ion-list-header>
+                   <ion-label> </ion-label> 
+                </ion-list-header> -->
+                <ion-button id="open-modal1" color="blank">Fecha inicio</ion-button>
+                <ion-modal trigger="open-modal1" >
+               <ng-template >
+                   
+                    <ion-datetime  placeholder="fecha de inicio" value="{{fechaNaci | date: 'yyyy-MM-dd'}}"
+                    display-format="YYYY MMMM DD"
+                    cancelText="cancelar"
+                    doneText="Aceptar"
+                    [(ngModel)]="newIproyects.fechaI" showDefaultButtons="true"> 
+
+                    </ion-datetime>
+                </ng-template></ion-modal>
+
+            </ion-list>
+   
+            
+
+            <ion-list>
+                <!-- 
+                                <ion-list-header>
+                                   <ion-label> </ion-label> 
+                                </ion-list-header> -->
+                                <ion-button id="open-modal" color="blank">Fecha final</ion-button>
+                                <ion-modal trigger="open-modal" >
+                               <ng-template>
+                                    
+                                    <ion-datetime placeholder="fecha de final" value="{{fechaNaci | date: 'yyyy-MM-dd'}}"
+                                    display-format="YYYY MMMM DD"
+                                    cancelText="Cancelar"
+                                    doneText="Aceptar"
+                                    [(ngModel)]="newIproyects.fechaF" showDefaultButtons="true"> 
+                
+                                    </ion-datetime>
+                                </ng-template></ion-modal>
+                
+                            </ion-list>
+            
+            
+    
+            <ion-item>
+              <ion-label position="floating">
+                Encargado
+              </ion-label>
+              <ion-input [(ngModel)]="newIproyects.encargadoP" placeholder="Nombre del encargado"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                  Maquinas
+                </ion-label>
+                <ion-input [(ngModel)]="newIproyects.maquinasT" placeholder="Numero de maquinas"></ion-input>
+              </ion-item>
+
+    <ion-item>
+              <ion-label position="floating">
+                Precio de contrato
+              </ion-label>
+              <ion-input type="tel" maxlength="10"  placerholder="Precio de contrato" min="000" max="999"  [(ngModel)]="newIproyects.monto" placeholder="Precio" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                  Direccion
+                </ion-label>
+                <ion-input [(ngModel)]="newIproyects.direccion" placeholder="Ubicacion del proyecto"></ion-input>
+              </ion-item>
+
+
+              <ion-item>
+                <ion-label>Status</ion-label>
+                <ion-select [(ngModel)]="newIproyects.status" value="brown" okText="aceptar" cancelText="cancelar">
+                  <ion-select-option *ngFor="let status of status" [value]="status">{{status}}</ion-select-option>
+           
+                </ion-select>
+              </ion-item>
+          
+            <ion-button expand="full" (click)="guardar()" >
+              guardar
+            </ion-button>
+          
+            
+    
+          </ion-col>
+        </ion-row>
+    
+    
+    
+    
+    
+      </ion-grid>
+    
+      
+    
+</ion-content>
+
+<ion-content class="content" *ngIf=" rol=='Operador'|| rol=='root' " >
+  <ion-row>
+    <ion-col >
+
+
+      <ion-card>
+       
+   <img src="../../../assets/img/iconx.png" width="300px" />
+ 
+        <br>
+        <br>
+        <ion-label>
+          <h1>Error </h1>
+        </ion-label>
+        <p>_______________</p>
+        <ion-label><h1>Parece que no cuentas con los permisos</h1></ion-label><br><br>
+        <ion-label><h1>Inicia Sesión con el usuario correcto</h1> </ion-label>
+        
+        <div>
+          <p>_______________</p>
+          <br>
+
+          <ion-button [routerLink]="['/home']"> Regresar</ion-button><br>
+          <br>
+        </div>
+
+        <!-- <ion-icon class="icon-dinero" name="cash-outline"></ion-icon> -->
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

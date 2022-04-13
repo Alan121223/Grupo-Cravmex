@@ -1,0 +1,71 @@
+<!-- <ion-header>
+
+  <ion-toolbar>
+
+
+      <div class="titleicon">
+        <img src="../../../assets/img/ssqq.jpg" width="100px" routerLink="/home" class="cursor" />
+     </div>
+
+      <ion-buttons slot="start">
+<ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+      <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+
+ <!-- <ion-title >
+      <p align="center" style="color: white;" >Gastos semanales </p>
+</ion-title> -->
+
+
+   <!-- <ion-row> -->
+    <div sizeLg="6" sizeMd="6" sizeXs="12" *ngIf="resultado" class="content-resultado">
+     
+   
+
+      <ion-card > 
+         <!-- <ion-avatar class="avatar">
+          <img src="../../../assets/img/money.jpg" width="100px"/>
+        </ion-avatar>  -->
+        <br>
+        <br>
+ <h1>Proyecto: {{resultado.nombrePr}} </h1>
+      <p>_______________</p>
+      <br>
+      <br>
+ <ion-label ><h2>Fecha de inicio:</h2>{{resultado.semana  }} </ion-label>
+      <br>
+      <br>
+ <ion-label ><h2>Fecha de inicio:</h2>{{resultado.fechaE | date }} </ion-label>
+ <br>
+ <br>
+ <ion-label ><h2>Fecha de inicio:</h2>{{resultado.fechaF | date  }} </ion-label>
+ <div>  <p>_______________</p>
+   <br>
+ 
+  <br>
+ </div>
+
+ 
+   <ion-button color="tertiary" (click)="detalles()" > Gastos
+    <ion-icon slot="end" name="cash"></ion-icon>
+     </ion-button>
+     <br>
+     <br>
+
+
+ <!-- <ion-icon class="icon-dinero" name="cash-outline"></ion-icon> -->
+   </ion-card> 
+  <!-- <app-verproyecto [proyectos]="proyect"></app-verproyecto> -->
+  
+    </div>
+    
+  <!-- </ion-row> -->
+
+ 
+
+
+

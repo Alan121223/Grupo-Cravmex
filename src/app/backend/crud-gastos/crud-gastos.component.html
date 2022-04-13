@@ -1,0 +1,196 @@
+<ion-header>
+
+  <ion-toolbar>
+
+
+      <div class="titleicon">
+          <img src="../../../assets/img/ssqq.jpg" width="100PX" />
+     </div>
+
+      <ion-buttons slot="start">
+<ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+      <ion-title>Gasto semanal</ion-title>
+
+      
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-grid >
+
+      <ion-row class="ion-justify-content-end">
+        <ion-col size="2">
+          <ion-button shape="round" (click)= "addNew()">
+            <ion-icon name="add-outline"></ion-icon>
+          </ion-button>
+  
+        </ion-col>
+      </ion-row>
+
+
+      <ion-item>
+        <!-- <ion-col>
+          <ion-label >Tipo de Usuario: </ion-label>
+        </ion-col> -->
+        <ion-col>
+          <ion-label>Proyecto</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>No.Semana </ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Fecha de inicio</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Fecha de Final</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label> </ion-label>
+        </ion-col>
+       
+      </ion-item>
+    
+      
+      <ion-item  *ngFor="let gasto of gastos"  >
+          <ion-col>
+          <br><br>
+
+          <ion-label> 
+  {{gasto.nombrePr}}
+          </ion-label>
+        </ion-col>
+
+
+        <ion-col>
+         <br><br>
+
+          <ion-label>
+  {{gasto.semana }}
+          </ion-label>
+        </ion-col>
+
+        <ion-col>
+
+        <br><br>
+
+          <ion-label>
+  {{gasto.fechaE | date }}
+          </ion-label>
+        </ion-col>
+        <ion-col>
+          <br><br>
+
+          <ion-label>
+  {{gasto.fechaF| date }}
+          </ion-label>
+        </ion-col>
+       
+        
+        
+  
+        <ion-col size="2">
+          <ion-buttons>
+            <ion-button (click)="editar(gasto)">
+              <ion-icon name="create"></ion-icon>
+            </ion-button>
+  
+            <ion-button  (click)="eliminar(gasto)">
+              <ion-icon color="danger" name="trash"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+     
+      </ion-item>
+  
+      <ion-row>
+        <ion-col *ngIf="newImoney">
+          
+          <ion-item>
+            <ion-label position="floating">
+              Nombre proyecto
+            </ion-label>
+            <ion-select [(ngModel)]="newImoney.nombrePr"  placeholder="Nombre " required>
+              <ion-select-option *ngFor="let proyectos of proyectow" [value]="proyectos.nombreP"   >{{proyectos.nombreP}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label position="floating">
+              semana
+            </ion-label>
+            <ion-input [(ngModel)]="newImoney.semana" placeholder="Numero de semana " required></ion-input>
+          </ion-item>
+
+          
+  
+          <ion-list>
+<!-- 
+              <ion-list-header>
+                 <ion-label> </ion-label> 
+              </ion-list-header> -->
+              <ion-button id="open-modal1" color="blank">Fecha inicio</ion-button>
+              <ion-modal trigger="open-modal1" >
+             <ng-template >
+                 
+                  <ion-datetime  placeholder="fecha de inicio" value="{{fechaNaci | date: 'yyyy-MM-dd'}}"
+                  display-format="YYYY MMMM DD"
+                  cancelText="cancelar"
+                  doneText="Aceptar"
+                  [(ngModel)]="newImoney.fechaE" showDefaultButtons="true"> 
+
+                  </ion-datetime>
+              </ng-template></ion-modal>
+
+          </ion-list>
+ 
+          
+
+          <ion-list>
+              <!-- 
+                              <ion-list-header>
+                                 <ion-label> </ion-label> 
+                              </ion-list-header> -->
+                              <ion-button id="open-modal" color="blank">Fecha final</ion-button>
+                              <ion-modal trigger="open-modal" >
+                             <ng-template>
+                                  
+                                  <ion-datetime placeholder="fecha de final" value="{{fechaNaci | date: 'yyyy-MM-dd'}}"
+                                  display-format="YYYY MMMM DD"
+                                  cancelText="Cancelar"
+                                  doneText="Aceptar"
+                                  [(ngModel)]="newImoney.fechaF" showDefaultButtons="true"> 
+              
+                                  </ion-datetime>
+                              </ng-template></ion-modal>
+              
+                          </ion-list>
+          
+          
+  
+          
+        
+          <ion-button expand="full" (click)="guardar()" >
+            guardar
+          </ion-button>
+        
+          
+  
+        </ion-col>
+      </ion-row>
+  
+  
+  
+  
+  
+    </ion-grid>
+  
+    
+  
+</ion-content>
+
+

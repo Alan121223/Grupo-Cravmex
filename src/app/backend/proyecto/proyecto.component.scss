@@ -1,0 +1,47 @@
+.titleicon {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    text-align:center;
+}
+.icon{
+    width: 100%;
+}
+
+
+
+.titleicon {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    text-align:center;
+}
+
+.logo{
+    margin-top: 1%;
+    img{
+        height: 150px;
+    }
+}
+.form{
+    margin-top: -20px;
+    ion-item{
+        border-radius: 5px;
+        border-color: rgb(68, 68, 67);
+        border-width: 1px;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+}
+.content{
+
+    // position: relative;
+// align-content: center;
+
+    text-align: center;
+  
+
+
+}

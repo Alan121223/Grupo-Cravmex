@@ -1,0 +1,110 @@
+<ion-header>
+
+  <ion-toolbar>
+
+ 
+      <div class="titleicon">
+        <img src="../../../assets/img/ssqq.jpg" width="100px" routerLink="/home" class="cursor"  />
+             </div>
+
+      <ion-buttons slot="start">
+<ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+      <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid >
+
+      <ion-row class="ion-justify-content-end">
+        <ion-col size="2">
+          <ion-button shape="round" (click)= "addNew()">
+            <ion-icon name="add-outline"></ion-icon>
+          </ion-button>
+  
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+
+          <ion-col *ngIf="newIgastos">
+
+              <ion-item>
+                  <ion-label position="floating">
+                   Descripción
+                  </ion-label>
+                  <ion-input [(ngModel)]="newIgastos.descripcion" placeholder="Descripción del gasto" required></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label position="floating">
+                    Cantidad
+                  </ion-label>
+                  <ion-input [(ngModel)]="newIgastos.monto" placeholder="$$" required></ion-input>
+                </ion-item>
+
+                <ion-list>
+                  <!-- 
+                                  <ion-list-header>
+                                     <ion-label> </ion-label> 
+                                  </ion-list-header> -->
+                                  <ion-button id="open-modal1" color="blank">Fecha inicio</ion-button>
+                                  <ion-modal trigger="open-modal1" >
+                                 <ng-template >
+                                     
+                                      <ion-datetime  placeholder="fecha de inicio" value="{{fechaNaci | date: 'yyyy-MM-dd'}}"
+                                      display-format="YYYY MMMM DD"
+                                      cancelText="cancelar"
+                                      doneText="Aceptar"
+                                      [(ngModel)]="newIgastos.fecha" showDefaultButtons="true"> 
+                  
+                                      </ion-datetime>
+                                  </ng-template></ion-modal>
+                  
+                              </ion-list>
+
+                              <ion-item>
+                                  <ion-label class="normal">
+                                      Foto:
+                                  </ion-label>
+                                  <!-- <ion-input [(ngModel)]="newIgastos.foto" placeholder="Descripcion" required></ion-input> -->
+                                  <input  id="file-upload" type="file" (click)="Image($event)" placeholder="Foto" >
+
+                              </ion-item>
+                              <img class="image" [src]="newIgastos.foto">
+                            
+
+
+
+<ion-button expand="full" (click)="guardar()" >
+          guardar
+        </ion-button>
+
+
+
+
+
+          </ion-col>
+
+
+
+
+
+      </ion-row>
+
+
+
+
+
+
+      </ion-grid>
+
+
+
+  
+</ion-content>

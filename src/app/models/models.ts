@@ -5,8 +5,7 @@ export interface UserI {
     password: string;
     uid: string;
     telefono:string;
-
-    
+status:string;
     perfil:string;
  
 
@@ -19,15 +18,60 @@ export interface Proyecto{
     fechaI: string;
     fechaF:string;
     encargadoP:string;
-    maquinas:'mano de gato'|'tractor'|'cravmex';
+    maquinasT:string;
+    monto:string;
+    direccion:string;
+    status: 'Activo' |'Terminado'; 
+     id:string;
+}
 
+
+
+
+export const statusO = ['Activo', 'Terminado']
+
+export interface Gastos{
+  nombrePr:Proyecto;
+  semana:string;
+  fechaE:string;
+  fechaF:string;
+  id:string;
+
+}
+export interface GatosDiarios{
+ 
+  descripcion: string ;
+  monto: string ;
+  fecha:string;
+  foto:string;
+  id:string;
 
 
 }
 
-export interface Gastos{
+export interface Aditivo{
+  nombrePr:Proyecto;
+  material:'Si'|'No';
+  renta:'Si'|'No';
+  trabajo:'Si'|'No';
+  costoT:string;
+  id:string;
+}
 
-    descripcion: string ;
-    monto: string; 
+export const materialM = ['Si', 'No']
+export const rentaM = ['Si', 'No']
+export const trabajoM = ['Si', 'No']
 
+
+export interface Avances{
+nombrePr:Proyecto;
+avance:string;
+id:string;
+
+}
+
+export interface AvancesDiarios{
+  porcentaje:string;
+  fechaI:string;
+  id:string;
 }

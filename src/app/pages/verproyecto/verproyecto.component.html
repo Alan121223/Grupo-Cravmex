@@ -1,3 +1,67 @@
-<p>
-  verproyecto works!
-</p>
+<ion-header>
+
+  <ion-toolbar>
+
+
+      <div class="titleicon">
+        <img src="../../../assets/img/ssqq.jpg" width="100px" routerLink="/home" class="cursor" />
+     </div>
+
+      <ion-buttons slot="start">
+<ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+      <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+
+
+    <ion-title >
+      <p align="center" style="color: white;" >Proyectos</p>
+</ion-title>
+
+
+
+
+   <ion-row>
+    <ion-col sizeLg="6" sizeMd="6" sizeXs="12" *ngFor="let proyect of proyecto">
+     
+      <ion-card >
+         <!-- <ion-avatar class="avatar">
+          <img src="../../../assets/img/money.jpg" width="100px"/>
+        </ion-avatar> -->
+        <br>
+        <br>
+ <ion-label><h1>Proyecto {{proyect.nombreP}} </h1></ion-label>
+      <p>_______________</p>
+      <ion-label >El encargado, Ing.{{proyect.encargadoP }} </ion-label>
+      <br>
+      <br>
+ <ion-label ><h2>Fecha de inicio:</h2>{{proyect.fechaI | date }} </ion-label>
+ <br>
+ <br>
+ <ion-label ><h2>Fecha de inicio:</h2>{{proyect.fechaF | date  }} </ion-label>
+ <div>  <p>_______________</p>
+   <br>
+  <ion-button *ngIf="rol=='Operador'" color="success" [routerLink]="['/versemanas']" > Gastos</ion-button>
+  <ion-button expand="block" *ngIf="rol=='Administrador'" [routerLink]="['/proyecto']" routerLinkActive="router-link-active" > Ver más</ion-button><br>
+  <br>
+ </div>
+
+ <!-- <ion-icon class="icon-dinero" name="cash-outline"></ion-icon> -->
+  </ion-card>
+  <!-- <app-verproyecto [proyectos]="proyect"></app-verproyecto> -->
+  
+    </ion-col>
+    
+  </ion-row>
+
+ 
+
+
+
+
+</ion-content>

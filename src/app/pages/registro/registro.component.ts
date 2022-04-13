@@ -16,6 +16,12 @@ export class RegistroComponent implements OnInit {
   ///
   data :any[]=[];
 
+  login : boolean =false;
+
+  // rol: 'visitante' | 'admin'= null;
+  rol: string;
+
+
   datos: UserI = {
     nombre: null,
     apellido:null,
@@ -23,9 +29,10 @@ export class RegistroComponent implements OnInit {
     password: null,
     uid: null,
     telefono:null,
+    status:null,
  
 //
-    perfil: null,
+    perfil: null
   }
 
   constructor(private auth: AuthService,
@@ -41,11 +48,23 @@ this.platform.ready().then(()=>{
 
     }
 
-     OnChange(event){
+    Onchange(event){
       alert("Seguro que quieres ser "+event.target.value+"?");
-     }
+    }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    this.auth.stateUser().subscribe(res =>{
+      if (res){
+        console.log('estas logeado');
+        this.getDatosUser(res.uid)
+        this.login=true;
+      }else{
+        console.log('no estas logeado');
+        this.login=false;
+      }
+    })
+  }
 
   logout() {
     this.auth.logut();
@@ -78,4 +97,16 @@ this.platform.ready().then(()=>{
     }
 
   }
+  getDatosUser(uid: string) {
+    const path = 'Usuarios';
+    const id = uid;
+    this.firestore.getDoc<UserI>(path, id).subscribe( res => {
+        console.log('datos -> ', res);
+        if (res) {
+           this.rol= res.perfil
+        }
+    })
+    
+  }
+
 }

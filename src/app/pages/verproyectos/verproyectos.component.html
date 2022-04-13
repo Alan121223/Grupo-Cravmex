@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-toolbar>
+
+
+      <div class="titleicon">
+        <img src="../../../assets/img/ssqq.jpg" width="100px" routerLink="/home" class="cursor" />
+     </div>
+
+      <ion-buttons slot="start">
+<ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+      <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+
+<h1></h1>
+
+  <div *ngFor="let restultado of resultados">
+ <app-resultado-proyecto [resultados]="restultado"></app-resultado-proyecto>
+  </div>
+</ion-content>

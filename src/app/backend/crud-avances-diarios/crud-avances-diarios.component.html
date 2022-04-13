@@ -1,0 +1,102 @@
+<ion-header>
+
+  <ion-toolbar>
+
+
+      <div class="titleicon">
+          <img src="../../../assets/img/ssqq.jpg" width="100PX" />
+     </div>
+
+      <ion-buttons slot="start">
+<ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+      <ion-title>Gasto semanal</ion-title>
+
+      
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid >
+
+      <ion-row class="ion-justify-content-end">
+        <ion-col size="2">
+          <ion-button shape="round" (click)= "addNew()">
+            <ion-icon name="add-outline"></ion-icon>
+          </ion-button>
+  
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+
+          <ion-col *ngIf="newIAvancesD">
+
+              <ion-item>
+                  <ion-label position="floating">
+                   Porcentaje d eproyecto
+                  </ion-label>
+                  <ion-input [(ngModel)]="newIAvancesD.porcentaje" placeholder="Porcentaje de obra" required></ion-input>
+                </ion-item>
+
+            
+
+                <ion-list>
+                  <!-- 
+                                  <ion-list-header>
+                                     <ion-label> </ion-label> 
+                                  </ion-list-header> -->
+                                  <ion-button id="open-modal1" color="blank">Fecha inicio</ion-button>
+                                  <ion-modal trigger="open-modal1" >
+                                 <ng-template >
+                                     
+                                      <ion-datetime  placeholder="fecha de inicio" value="{{fechaNaci | date: 'yyyy-MM-dd'}}"
+                                      display-format="YYYY MMMM DD"
+                                      cancelText="cancelar"
+                                      doneText="Aceptar"
+                                      [(ngModel)]="newIAvancesD.fechaI" showDefaultButtons="true"> 
+                  
+                                      </ion-datetime>
+                                  </ng-template></ion-modal>
+                  
+                              </ion-list>
+
+                            
+                            
+
+
+
+<ion-button expand="full" (click)="guardar()" >
+          guardar
+        </ion-button>
+
+
+
+
+
+          </ion-col>
+
+
+
+
+
+      </ion-row>
+
+
+
+
+
+
+      </ion-grid>
+
+
+
+  
+</ion-content>
+
+
+

@@ -1,0 +1,191 @@
+<ion-header>
+
+  <ion-toolbar>
+
+
+      <div class="titleicon">
+          <img src="../../../assets/img/ssqq.jpg" width="100PX" />
+     </div>
+
+      <ion-buttons slot="start">
+<ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+      <ion-title>Aditivos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+
+
+  <ion-grid >
+
+      <ion-row class="ion-justify-content-end">
+        <ion-col size="2">
+          <ion-button shape="round" (click)= "addNew()">
+            <ion-icon name="add-outline"></ion-icon>
+          </ion-button>
+  
+        </ion-col>
+      </ion-row>
+
+
+      <ion-item>
+        <!-- <ion-col>
+          <ion-label >Tipo de Usuario: </ion-label>
+        </ion-col> -->
+        <ion-col>
+          <ion-label>Proyecto</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Material </ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Renta Maquinaria</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Trabajo</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Costo </ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label> </ion-label>
+        </ion-col>
+       
+      </ion-item>
+    
+      
+      <ion-item  *ngFor="let aditiv of aditivo"  >
+          <ion-col>
+          <br><br>
+
+          <ion-label> 
+  {{aditiv.nombrePr}}
+          </ion-label>
+        </ion-col>
+
+
+        <ion-col>
+         <br><br>
+
+          <ion-label>
+  {{aditiv.material }}
+          </ion-label>
+        </ion-col>
+
+        <ion-col>
+
+        <br><br>
+
+          <ion-label>
+  {{aditiv.renta }}
+          </ion-label>
+        </ion-col>
+        <ion-col>
+          <br><br>
+
+          <ion-label>
+  {{aditiv.trabajo}}
+          </ion-label>
+        </ion-col>
+
+        <ion-col>
+          <br><br>
+
+          <ion-label>
+  {{aditiv.costoT}}
+          </ion-label>
+        </ion-col>
+
+        
+        
+       
+        
+        
+  
+        <ion-col size="2">
+          <ion-buttons>
+            <ion-button (click)="editar(aditiv)">
+              <ion-icon name="create"></ion-icon>
+            </ion-button>
+  
+            <ion-button  (click)="eliminar(aditiv)">
+              <ion-icon color="danger" name="trash"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+     
+      </ion-item>
+  
+      <ion-row>
+        <ion-col *ngIf="newIaditivo">
+          
+          <ion-item>
+            <ion-label position="floating">
+              Nombre proyecto
+            </ion-label>
+            <ion-select [(ngModel)]="newIaditivo.nombrePr"  placeholder="Nombre " required>
+              <ion-select-option *ngFor="let proyectos of proyectow" [value]="proyectos.nombreP"   >{{proyectos.nombreP}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label>Material</ion-label>
+            <ion-select [(ngModel)]="newIaditivo.material" value="brown" okText="aceptar" cancelText="cancelar">
+              <ion-select-option *ngFor="let mate of material" [value]="mate">{{mate}}</ion-select-option>
+       
+            </ion-select>
+          </ion-item>
+
+          
+  
+          <ion-item>
+            <ion-label>Renta de Maquinas</ion-label>
+            <ion-select [(ngModel)]="newIaditivo.renta" value="brown" okText="aceptar" cancelText="cancelar">
+              <ion-select-option *ngFor="let rent of renta" [value]="rent">{{rent}}</ion-select-option>
+       
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Trabajo Extra</ion-label>
+            <ion-select [(ngModel)]="newIaditivo.trabajo" value="brown" okText="aceptar" cancelText="cancelar">
+              <ion-select-option *ngFor="let trabaj of trabajo" [value]="trabaj">{{trabaj}}</ion-select-option>
+       
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">
+              Costo Total
+            </ion-label>
+            <ion-input type="tel" maxlength="10"  placerholder="Precio de contrato" min="000" max="999"  [(ngModel)]="newIaditivo.costoT" placeholder="Precio" required></ion-input>
+          </ion-item>
+        
+          
+          
+  
+          
+        
+          <ion-button expand="full" (click)="guardar()" >
+            guardar
+          </ion-button>
+        
+          
+  
+        </ion-col>
+      </ion-row>
+  
+  
+  
+  
+  
+    </ion-grid>
+  
+    
+  
+</ion-content>

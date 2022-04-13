@@ -4,7 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { InteractionService } from '../../services/interaction.service';
 import { FirestoreService } from '../../services/firestore.service';
 import { Router } from '@angular/router';
-import { UserI } from '../../models/models';
+import { UserI, statusO } from '../../models/models';
 
 @Component({
   selector: 'app-menu',
@@ -18,6 +18,7 @@ export class MenuComponent implements OnInit {
 
   // rol: 'visitante' | 'admin'= null;
   rol: string;
+  status:string;
 
   constructor(public popoverController: PopoverController,
               private auth  : AuthService,
@@ -57,6 +58,7 @@ getDatosUser(uid: string) {
       console.log('datos -> ', res);
       if (res) {
          this.rol= res.perfil
+         this.status=res.status
       }
   })
   

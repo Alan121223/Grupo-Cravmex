@@ -26,8 +26,21 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { VeravancesComponent } from './pages/veravances/veravances.component';
 import { VergastosComponent } from './pages/vergastos/vergastos.component';
 import { VerproyectoComponent } from './pages/verproyecto/verproyecto.component';
-import { UseroperativeComponent } from './pages/useroperative/useroperative.component';
+import { CrudGastosComponent } from './backend/crud-gastos/crud-gastos.component';
 import { UseradminComponent } from './pages/useradmin/useradmin.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { CrudGastosDiariosComponent } from './backend/crud-gastos-diarios/crud-gastos-diarios.component';
+import { CrudAdictivosComponent } from './backend/crud-adictivos/crud-adictivos.component';
+import { ResultadoSemanasComponent } from './components/resultado-semanas/resultado-semanas.component';
+import { VersemanasComponent } from './pages/versemanas/versemanas.component';
+import { ResultadoProyectoComponent } from './components/resultado-proyecto/resultado-proyecto.component';
+import { VerproyectosComponent } from './pages/verproyectos/verproyectos.component';
+import { CrudAvancesComponent } from './backend/crud-avances/crud-avances.component';
+import { CrudAvancesDiariosComponent } from './backend/crud-avances-diarios/crud-avances-diarios.component';
+import { DetallesAvancesComponent } from './components/detalles-avances/detalles-avances.component';
+
+
+
 
 
 
@@ -44,8 +57,18 @@ RegistroComponent,
 VeravancesComponent,
 VergastosComponent,
 VerproyectoComponent,
-MenuComponent,UseroperativeComponent,
-UseradminComponent
+MenuComponent,
+CrudGastosComponent,
+UseradminComponent,
+CrudGastosDiariosComponent,
+CrudAdictivosComponent,
+ResultadoSemanasComponent, 
+VersemanasComponent,
+ResultadoProyectoComponent,
+VerproyectosComponent,
+CrudAvancesComponent,
+CrudAvancesDiariosComponent,
+DetallesAvancesComponent
 ],
   entryComponents: [],
   imports: [BrowserModule, 
@@ -55,9 +78,11 @@ UseradminComponent
      CommonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule
-
-
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    
+    
+   
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

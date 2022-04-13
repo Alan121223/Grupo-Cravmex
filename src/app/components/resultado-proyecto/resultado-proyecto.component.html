@@ -1,0 +1,48 @@
+<div sizeLg="6" sizeMd="6" sizeXs="12" *ngIf="resultados" class="content-resultado">
+     
+   
+
+  <ion-card > 
+     <!-- <ion-avatar class="avatar">
+      <img src="../../../assets/img/money.jpg" width="100px"/>
+    </ion-avatar>  -->
+    <br>
+    <br>
+<h1>Proyecto: {{resultados.nombrePr}} </h1>
+  <p>_______________</p>
+ 
+  <br>
+  <br>
+  
+<ion-label ><h2>Fecha de inicio:</h2>{{resultados.avance  }} </ion-label>
+<br>
+<br>
+
+<div>  <p>_______________</p>
+<br>
+
+<br>
+<br>
+
+
+</div>
+
+
+<ion-button color="tertiary" (click)="detalles()"> Registrar avance diario
+<ion-icon slot="end" name="reader-outline"></ion-icon>
+ </ion-button>
+ <br>
+ <ion-button color="tertiary" (click)="informacion()"> Informacion
+  <ion-icon slot="end" name="book"></ion-icon>
+   </ion-button>
+ <br>
+
+
+
+<!-- <ion-icon class="icon-dinero" name="cash-outline"></ion-icon> -->
+</ion-card> 
+<br>
+
+<!-- <app-verproyecto [proyectos]="proyect"></app-verproyecto> -->
+
+</div>

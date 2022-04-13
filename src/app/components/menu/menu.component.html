@@ -1,11 +1,18 @@
-<ion-list>
+<ion-list *ngIf="status=='Activo'">
 
   <ion-list-header>
     <strong>Menú</strong>
   </ion-list-header>
 
 
-  <ion-item  [routerLink]="['/proyecto']"  *ngIf="rol === 'Administrador' " >
+  <ion-item  [routerLink]="['/home']"   >
+    <ion-label>
+      principal
+    </ion-label>
+    <ion-icon slot="start" name="home-outline"></ion-icon>
+</ion-item>
+
+  <ion-item  [routerLink]="['/proyecto']"  *ngIf="login && rol=='Administrador'" >
         <ion-label>
           Proyectos
         </ion-label>
@@ -19,6 +26,13 @@
     <ion-icon slot="start" name="clipboard-outline"></ion-icon>
 </ion-item>
 
+<ion-item  [routerLink]="['/crud-gastos']"  *ngIf="login && rol=='Administrador'" >
+  <ion-label>
+    Gasto semanal
+  </ion-label>
+  <ion-icon slot="start" name="flag"></ion-icon>
+</ion-item>
+
   <ion-item  [routerLink]="['/avances']"  *ngIf="login && rol=='Operador'">
     <ion-label>
       Avances
@@ -27,17 +41,25 @@
 </ion-item>
 
 
-<ion-item  [routerLink]="['/veravances']"  *ngIf="rol === 'Administrador' " >
+<ion-item  [routerLink]="['/crud-avances']"  *ngIf="login && rol=='Administrador'" >
+  <ion-label>
+   Registrar avance
+  </ion-label>
+  <ion-icon slot="start" name="settings"></ion-icon>
+</ion-item>
+
+
+<ion-item  [routerLink]="['/veravances']"  *ngIf="login && rol=='Administrador'" >
   <ion-label>
     Ver avances
   </ion-label>
   <ion-icon slot="start" name="settings"></ion-icon>
 </ion-item>
 
-<ion-item  [routerLink]="['/registro']" *ngIf="rol === 'root' " >
+<ion-item  [routerLink]="['/registro']" *ngIf="login && rol=='root'" >
   <ion-label>
-   Nuevo usuario  </ion-label>
-  <ion-icon slot="start" name="person-add-outline" ></ion-icon>
+    Registrar usuarios   </ion-label>
+  <ion-icon slot="start" name="person-circle-outline" ></ion-icon>
 </ion-item>
 
 <ion-item  [routerLink]="['/useradmin']" *ngIf="rol === 'root' " >
@@ -45,6 +67,7 @@
     Registrados </ion-label>
   <ion-icon slot="start" name="person-circle-outline" ></ion-icon>
 </ion-item>
+
 
 
   
@@ -55,7 +78,7 @@
     <ion-icon slot="start" name="cash-outline"></ion-icon>
   </ion-item>
 
-  <ion-item detail="true" [routerLink]="['/vergastos']" *ngIf="rol === 'Administrador' " >
+  <ion-item detail="true" [routerLink]="['/vergastos']" *ngIf="login && rol=='Administrador'" >
     <ion-label>
       Ver Gastos
     </ion-label>
@@ -84,7 +107,7 @@
 
   <ion-item *ngIf ="login" detail="true" (click)="logout()">
     <ion-label>
-  Salir
+     Logout
     </ion-label>
     <ion-icon slot="start" name="log-out-sharp"></ion-icon>
   </ion-item>
