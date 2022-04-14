@@ -25,6 +25,7 @@ import { VerproyectosComponent } from './pages/verproyectos/verproyectos.compone
 import { CrudAvancesComponent } from './backend/crud-avances/crud-avances.component';
 import { CrudAvancesDiariosComponent } from './backend/crud-avances-diarios/crud-avances-diarios.component';
 import { DetallesAvancesComponent } from './components/detalles-avances/detalles-avances.component';
+import { DetallesGastosComponent } from './components/detalles-gastos/detalles-gastos.component';
 
 
 
@@ -57,7 +58,8 @@ const routes: Routes = [
   {path: 'verproyectos', component:VerproyectosComponent,canActivate: [AngularFireAuthGuard] },
   {path: 'crud-avances', component:CrudAvancesComponent,canActivate: [AngularFireAuthGuard] },
   {path: 'crud-avances-diarios', component:CrudAvancesDiariosComponent,canActivate: [AngularFireAuthGuard] },
-  {path: 'detalles-avances', component:DetallesAvancesComponent,canActivate: [AngularFireAuthGuard] }
+  {path: 'detalles-avances', component:DetallesAvancesComponent,canActivate: [AngularFireAuthGuard] },
+  {path: 'detalles-gastos', component:DetallesGastosComponent,canActivate: [AngularFireAuthGuard] }
 ];
 
 @NgModule({

@@ -1,8 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { Gastos, UserI } from '../../models/models';
 import { CrudGastosDiariosComponent } from '../../backend/crud-gastos-diarios/crud-gastos-diarios.component';
 import { FirestoreService } from '../../services/firestore.service';
+import { DetallesGastosComponent } from '../detalles-gastos/detalles-gastos.component';
+import { AuthService } from 'src/app/services/auth.service';
+import { InteractionService } from 'src/app/services/interaction.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-resultado-semanas',
@@ -22,11 +26,26 @@ rol: string;
 
 
   constructor(public modalController: ModalController,
-    private firestore: FirestoreService) { }
+    private firestore: FirestoreService,
+    public firestoreService: FirestoreService,
+  private router: Router, private auth: AuthService,
+  public alertController: AlertController,
+  private interactionService: InteractionService,
+  ) { }
 
   ngOnInit() {
 
     console.log('el input es ',this.resultado);
+    this.auth.stateUser().subscribe(res =>{
+      if (res){
+        console.log('estas logeado');
+        this.getDatosUser(res.uid)
+        this.login=true;
+      }else{
+        console.log('no estas logeado');
+        this.login=false;
+      }
+    })
   }
 
   async detalles(){
@@ -48,6 +67,14 @@ rol: string;
     })
     
   }
+
  
+  async informacion() {
+    const modal = await this.modalController.create({
+      component: DetallesGastosComponent,
+      componentProps:{resultado: this.resultado}
+    });
+    return await modal.present();
+  }
   
 }

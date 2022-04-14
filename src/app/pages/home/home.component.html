@@ -49,10 +49,10 @@
 
 
 <ion-row>
-  <ion-col sizeLg="8" sizeMd="8" sizeXl="3" *ngIf=" rol =='Administrador'" >
+  <ion-col sizeLg="8" sizeMd="8" sizeXl="3" *ngIf="login && rol =='Administrador'" >
     <ion-card>
       <ion-card-content>
-         <img src="../../../assets/img/clipart2398855.jpg" [routerLink]="['/verproyecto']" />
+         <img src="../../../assets/img/clipart2398855.jpg" [routerLink]="['/verproyectos']" />
 
       </ion-card-content>
       <ion-card-header>

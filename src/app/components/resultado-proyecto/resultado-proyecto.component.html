@@ -6,35 +6,34 @@
      <!-- <ion-avatar class="avatar">
       <img src="../../../assets/img/money.jpg" width="100px"/>
     </ion-avatar>  -->
-    <br>
-    <br>
+    
+    
 <h1>Proyecto: {{resultados.nombrePr}} </h1>
-  <p>_______________</p>
+  <p>__________________________</p>
  
-  <br>
-  <br>
   
-<ion-label ><h2>Fecha de inicio:</h2>{{resultados.avance  }} </ion-label>
-<br>
-<br>
+<ion-label ><h1>Proceso:</h1>{{resultados.avance  }} </ion-label>
+<br *ngIf="rol=='Administrador'">
+<br *ngIf="rol=='Administrador'">
 
-<div>  <p>_______________</p>
-<br>
-
-<br>
-<br>
+<div>  <p>___________________________</p>
+<br *ngIf="rol=='Operador'">
+ 
+<br *ngIf="rol=='Operador'">
+<br *ngIf="rol=='Operador'">
 
 
 </div>
 
 
-<ion-button color="tertiary" (click)="detalles()"> Registrar avance diario
+<ion-button color="tertiary" (click)="detalles()" *ngIf="rol=='Operador'"> Registrar avance diario
 <ion-icon slot="end" name="reader-outline"></ion-icon>
  </ion-button>
  <br>
- <ion-button color="tertiary" (click)="informacion()"> Informacion
+ <ion-button color="tertiary" (click)="informacion()" *ngIf="rol=='Administrador'"> Informacion
   <ion-icon slot="end" name="book"></ion-icon>
    </ion-button>
+ <br>
  <br>
 
 

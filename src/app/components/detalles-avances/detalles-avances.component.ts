@@ -18,7 +18,9 @@ final: AvancesDiarios[]=[];
   constructor( private modalController:ModalController,
                 private firestoreService:FirestoreService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getAvances()
+  }
 
 
 getAvances(){

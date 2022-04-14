@@ -46,8 +46,8 @@
  <ion-label ><h2>Fecha de inicio:</h2>{{proyect.fechaF | date  }} </ion-label>
  <div>  <p>_______________</p>
    <br>
-  <ion-button *ngIf="rol=='Operador'" color="success" [routerLink]="['/versemanas']" > Gastos</ion-button>
-  <ion-button expand="block" *ngIf="rol=='Administrador'" [routerLink]="['/proyecto']" routerLinkActive="router-link-active" > Ver más</ion-button><br>
+  <ion-button *ngIf="rol=='Operador'" color="success" [routerLink]="['/versemanas']" expand="full"> Gastos</ion-button>
+  <ion-button expand="full" *ngIf="rol=='Administrador'" [routerLink]="['/proyecto']" routerLinkActive="router-link-active" > Ver más</ion-button><br>
   <br>
  </div>
 

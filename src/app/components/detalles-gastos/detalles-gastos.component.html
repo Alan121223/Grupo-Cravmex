@@ -1,0 +1,53 @@
+<ion-content>
+
+  <ion-item>
+    <ion-label class="label">
+      Avances diarios 
+    </ion-label>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col >
+  <p>Descripcion</p>
+      </ion-col>
+  
+      <ion-col >
+  <p>monto</p>
+  
+      </ion-col>
+
+      <ion-col >
+        <p>Fecha</p>
+        
+            </ion-col>
+
+            <!-- <ion-col >
+              <p>Foto</p>
+              
+                  </ion-col> -->
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-grid>
+     
+    <ion-row *ngFor="let finales of final">
+      <ion-col >
+      
+         {{finales.descripcion}}
+      </ion-col><br>
+  <ion-col>
+      
+      ${{finales.monto }}
+      </ion-col>
+
+      <ion-col>
+      
+        {{finales.fecha|date}}
+      </ion-col>
+
+      
+      
+    </ion-row>
+  </ion-grid>
+  </ion-grid>
+  </ion-content>

@@ -1,18 +1,36 @@
 <ion-content>
 
 <ion-item>
-  <ion-label>
-    dia
+  <ion-label class="label">
+    Avances diarios 
   </ion-label>
 </ion-item>
+<ion-grid>
+  <ion-row>
+    <ion-col >
+<p>porcentaje</p>
+    </ion-col>
 
-<ion-list>
-  <ion-item *ngFor="let finales of final">
+    <ion-col >
+<p>Fecha</p>
 
-    <ion-item>
-     {{finales.porcentaje}
-    </ion-item>
-  </ion-item>
-</ion-list>
-
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ion-grid>
+  <ion-grid>
+   
+  <ion-row *ngFor="let finales of final">
+    <ion-col >
+    
+      <p> {{finales.porcentaje}}%</p>
+    </ion-col>
+<ion-col>
+    
+      {{finales.fechaI | date}}
+    </ion-col>
+    
+  </ion-row>
+</ion-grid>
+</ion-grid>
 </ion-content>

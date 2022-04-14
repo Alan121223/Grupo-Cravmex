@@ -36,27 +36,28 @@
       <p>_______________</p>
       <br>
       <br>
- <ion-label ><h2>Fecha de inicio:</h2>{{resultado.semana  }} </ion-label>
+ <ion-label ><h2>Semana Numero</h2>#{{resultado.semana  }} </ion-label>
       <br>
       <br>
  <ion-label ><h2>Fecha de inicio:</h2>{{resultado.fechaE | date }} </ion-label>
  <br>
  <br>
- <ion-label ><h2>Fecha de inicio:</h2>{{resultado.fechaF | date  }} </ion-label>
+ <ion-label ><h2>Fecha Final:</h2>{{resultado.fechaF | date  }} </ion-label>
  <div>  <p>_______________</p>
-   <br>
- 
-  <br>
+
  </div>
 
  
-   <ion-button color="tertiary" (click)="detalles()" > Gastos
+   <ion-button color="tertiary" (click)="detalles()" *ngIf="rol=='Operador'" > Gastos
     <ion-icon slot="end" name="cash"></ion-icon>
      </ion-button>
+     
+     
+     <ion-button color="tertiary" (click)="informacion()" *ngIf="rol=='Administrador'"> Informacion Gastos diarios
+      <ion-icon slot="end" name="book"></ion-icon>
+       </ion-button>
      <br>
-     <br>
-
-
+<br>
  <!-- <ion-icon class="icon-dinero" name="cash-outline"></ion-icon> -->
    </ion-card> 
   <!-- <app-verproyecto [proyectos]="proyect"></app-verproyecto> -->
