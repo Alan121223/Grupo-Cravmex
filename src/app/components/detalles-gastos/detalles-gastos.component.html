@@ -1,3 +1,25 @@
+<ion-header>
+
+  <ion-toolbar>
+
+ 
+      <div class="titleicon">
+        <img src="../../../assets/img/ssqq.jpg" width="100px" routerLink="/home" class="cursor"  />
+             </div>
+
+      <ion-buttons slot="start">
+<ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+      <ion-title></ion-title>
+      
+      <ion-buttons slot="end">
+        <ion-button (click)="cerrar()">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
 
   <ion-item>
@@ -20,14 +42,14 @@
         <p>Fecha</p>
         
             </ion-col>
-
-            <!-- <ion-col >
+          
+            <ion-col >
               <p>Foto</p>
               
-                  </ion-col> -->
+                  </ion-col> 
     </ion-row>
   </ion-grid>
-  <ion-grid>
+
     <ion-grid>
      
     <ion-row *ngFor="let finales of final">
@@ -43,11 +65,22 @@
       <ion-col>
       
         {{finales.fecha|date}}
-      </ion-col>
-
-      
-      
+      </ion-col> 
+      <ion-col>
+      <ion-button (click)="foto()">
+        Ver Imagen
+      </ion-button> 
+     
+    </ion-col>
+    
+    <br><br>
     </ion-row>
+    <ion-row *ngFor="let finales of final" class="rowt">
+      <ion-col >
+        <img class="image" [src]="finales.foto"  *ngIf="ocultar">
+        
+              </ion-col>  
+          </ion-row>
   </ion-grid>
-  </ion-grid>
+
   </ion-content>

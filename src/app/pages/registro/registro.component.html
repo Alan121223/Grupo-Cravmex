@@ -68,14 +68,14 @@
       <ion-label position="floating">
         Contraseña
        </ion-label>
-      <ion-input [(ngModel)]="datos.password" placeholder="Ingrese una contraseña" type="password" required></ion-input>
+      <ion-input [(ngModel)]="datos.password" placeholder="Ingrese una contraseña" type="text" required></ion-input>
     </ion-item>
 
     <ion-item lines="none">
       <ion-label position="floating">
        # Telefono
        </ion-label>
-      <ion-input [(ngModel)]="datos.telefono" placeholder="Ingrese su numero" type="number" required></ion-input>
+       <ion-input [(ngModel)]="datos.telefono" maxlength="10" min="000" max="999"  placeholder="Ingrese su numero" type="tel" required></ion-input>
     </ion-item>
 
 

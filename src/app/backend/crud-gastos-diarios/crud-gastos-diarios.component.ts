@@ -20,10 +20,13 @@ export class CrudGastosDiariosComponent implements OnInit {
   gastosD : GatosDiarios[]=[];
   
   newIgastos: GatosDiarios;
+  private path = 'Productos/';
 
-  newImagen='';
+
+  newImage = '';
   newFile: any;
 
+loading:any;
 
 
   constructor(private authService: AuthService,
@@ -68,38 +71,33 @@ this.database.getCollection<GatosDiarios>(path).subscribe(res =>{
   
   async guardar(){
     await this.interactionService.presentLoading('guardando...');
-    console.log('guardar ->', this.newIgastos);
+    //const path = 'Productos';
     const path = 'Gastos/' + this.gastos.id+'/GastosDiarios/';
-    const name = this.newIgastos.foto;
-        const res = await this.firestorageService.uploadImage(this.newFile, path, name);
-        this.newIgastos.foto = res;
-        console.log('recibí res de la promesa', res);
-        console.log('fin de la function -> Image');
+    const name = this.newIgastos.descripcion;
+    if (this.newFile !== undefined) {
+      const res = await this.firestorageService.uploadImage(this.newFile, path, name);
+      this.newIgastos.foto = res;
     
-        //------------------------//
-        
-        console.log('guardar ->', this.newIgastos);
-      
-        await this.database.createDoc(this.newIgastos, path, this.newIgastos.id );
-        this.interactionService.presentToast('guardado con exito');
-        this.interactionService.closeLoading();
-   }
-
-   async Image(event:any){
-    if (event.target.files && event.target.files[0]) {
-      this.newFile = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload=((image)=>
-      {
-
-this.newImagen = image.target.result as string;
-
-      });
-      reader.readAsDataURL(event.target.files[0]);
     }
-   
+      
+      
+        await this.database.createDoc(this.newIgastos, path, this.newIgastos.id ) ;
+          this.interactionService.presentToast('guardado con exito');
+        this.interactionService.closeLoading();
   
-  }
+       }
+
+   async newImageUpload(event: any) {
+    if (event.target.files && event.target.files[0]) {
+        this.newFile = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = ((image) => {
+            this.newIgastos.foto = image.target.result as string;
+        });
+        reader.readAsDataURL(event.target.files[0]);
+      }
+
+        }
 
    cerrar(){
 this.modalController.dismiss();

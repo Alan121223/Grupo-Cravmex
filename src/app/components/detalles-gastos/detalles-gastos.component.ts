@@ -11,7 +11,7 @@ import { FirestoreService } from '../../services/firestore.service';
 export class DetallesGastosComponent implements OnInit {
 
   @Input() resultado : Gastos;
-
+  public ocultar:boolean=false;
   final: GatosDiarios[]=[];
   
   
@@ -35,4 +35,8 @@ export class DetallesGastosComponent implements OnInit {
     cerrar(){
       this.modalController.dismiss();
     }
+    async foto() {
+     
+      this.ocultar=!this.ocultar;
+        }
 }

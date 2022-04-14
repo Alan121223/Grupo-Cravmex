@@ -25,7 +25,7 @@
   <ion-grid >
 
       <ion-row class="ion-justify-content-end">
-        <ion-col size="2">
+        <ion-col size="3.5">
           <ion-button shape="round" (click)= "addNew()">
             <ion-icon name="add-outline"></ion-icon>
           </ion-button>
@@ -38,25 +38,21 @@
         <!-- <ion-col>
           <ion-label >Tipo de Usuario: </ion-label>
         </ion-col> -->
-        <ion-col>
+        <ion-col col-4>
           <ion-label>Proyecto</ion-label>
         </ion-col>
         <ion-col>
-          <ion-label>avance </ion-label>
+          <ion-label col-4>avance </ion-label>
         </ion-col>
-        <ion-col>
-          <ion-label></ion-label>
-        </ion-col>
-        <ion-col>
-          <ion-label> </ion-label>
-        </ion-col>
+      
+        <ion-col col-4></ion-col>
        
       </ion-item>
     
       
       <ion-item  *ngFor="let avancess of avances"  >
-          <ion-col>
-          <br><br>
+          <ion-col col-4>
+       
 
           <ion-label> 
   {{avancess.nombrePr}}
@@ -64,8 +60,8 @@
         </ion-col>
 
 
-        <ion-col>
-         <br><br>
+        <ion-col col-4>
+   
 
           <ion-label>
   {{avancess.avance}}
@@ -74,10 +70,7 @@
 
         
        
-        
-        
-  
-        <ion-col size="2">
+        <ion-col col-4>
           <ion-buttons>
             <ion-button (click)="editar(avancess)">
               <ion-icon name="create"></ion-icon>
@@ -88,9 +81,12 @@
             </ion-button>
           </ion-buttons>
         </ion-col>
-     
-      </ion-item>
+        
   
+       
+      </ion-item>
+     
+   
       <ion-row>
         <ion-col *ngIf="newIAvances">
           
@@ -115,7 +111,8 @@
   
 
         
-          <ion-button color="dark" expand="full" (click)="guardar()" >
+          <ion-button color="dark" expand="full" (click)="guardar()" 
+          >
             guardar
           </ion-button>
         

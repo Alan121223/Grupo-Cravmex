@@ -69,7 +69,7 @@
   <ion-icon slot="start" name="person-circle-outline" ></ion-icon>
 </ion-item>
 
-<ion-item  [routerLink]="['/useradmin']" *ngIf="rol === 'root' " >
+<ion-item  [routerLink]="['/useradmin']" *ngIf="login && rol === 'root'" >
   <ion-label>
     Registrados </ion-label>
   <ion-icon slot="start" name="person-circle-outline" ></ion-icon>
@@ -92,7 +92,7 @@
     <ion-icon slot="start" name="wallet"></ion-icon>
   </ion-item>
   
-  <!-- <ion-menu-toggle >
+   <ion-menu-toggle >
     <ion-item  *ngIf ="login == false"  detail="true" [routerLink]="['/login']" >
       <ion-label>
       Salir
@@ -100,9 +100,9 @@
       <ion-icon slot="start" name="log-in-sharp"></ion-icon>
     </ion-item>
 
-  </ion-menu-toggle> -->
+  </ion-menu-toggle> 
 
-  <ion-item *ngIf ="login" detail="true" (click)="logout()" >
+  <ion-item *ngIf="login" detail="true" (click)="logout()"  >
     <ion-label>
      Salir
     </ion-label>

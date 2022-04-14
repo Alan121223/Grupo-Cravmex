@@ -58,7 +58,7 @@
       <ion-card-header>
       
         <ion-title class="iontitle">Avances</ion-title>
-
+        <p>__________________________________</p>
       </ion-card-header>
      
     </ion-card>
@@ -73,17 +73,17 @@
     <ion-card-header>
   
       <ion-title class="iontitle">Proyectos</ion-title>
-
+      <p>__________________________________</p>
     </ion-card-header>
     </ion-card>
   </ion-col>
   <ion-col sizeLg="8" sizeMd="8" sizeXl="3" *ngIf="login && rol =='Administrador'">
     <ion-card>
-      <ion-card-content><img src="../../../assets/img/money.jpg" /></ion-card-content>
+      <ion-card-content><img src="../../../assets/img/money.jpg"  [routerLink]="['/versemanas']" /></ion-card-content>
       <ion-card-header>
        
         <ion-title class="iontitle">Gastos</ion-title>
-
+        <p>__________________________________</p>
       </ion-card-header>
 
     </ion-card>
@@ -93,8 +93,8 @@
       <ion-card-content><img src="../../../assets/img/aditivoss.png" /></ion-card-content>
       <ion-card-header>
        
-        <ion-title class="iontitle">Adictivos</ion-title>
-
+        <ion-title class="iontitle">Aditivos</ion-title>
+        <p>__________________________________</p>
       </ion-card-header>
     </ion-card>
 

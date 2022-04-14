@@ -12,6 +12,12 @@
       </ion-buttons>
 
       <ion-title></ion-title>
+      
+      <ion-buttons slot="end">
+        <ion-button (click)="cerrar()">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -67,22 +73,28 @@
                                   </ng-template></ion-modal>
                   
                               </ion-list>
-
                               <ion-item>
-                                  <ion-label class="normal">
-                                      Foto:
-                                  </ion-label>
-                                  <!-- <ion-input [(ngModel)]="newIgastos.foto" placeholder="Descripcion" required></ion-input> -->
-                                  <input  id="file-upload" type="file" (click)="Image($event)" placeholder="Foto" >
-
+                                <ion-label class="normal">
+                                    Foto:
+                                </ion-label>
+                                <ion-buttons slot="end">
+                                  <ion-button>
+                                     <label for="file-upload">
+                                       <ion-icon slot="icon-only" name="images"></ion-icon>
+                                     </label>
+                                      <input  (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file"  accept="image/*">
+                                  </ion-button>
+                                </ion-buttons>
                               </ion-item>
-                              <img class="image" [src]="newIgastos.foto">
-                            
+                              
+                              <ion-item >
+                                <img class="image"  [src]="newIgastos.foto">
+                              </ion-item>
 
 
-
-<ion-button expand="full" (click)="guardar()" >
-          guardar
+<ion-button expand="full" (click)="guardar()"
+[disabled]="!newIgastos.descripcion||!newIgastos.foto ||!newIgastos.fecha" >
+          Guardar
         </ion-button>
 
 

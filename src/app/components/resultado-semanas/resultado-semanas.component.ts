@@ -76,5 +76,5 @@ rol: string;
     });
     return await modal.present();
   }
-  
+ 
 }
